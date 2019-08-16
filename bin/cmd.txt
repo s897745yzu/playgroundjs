@@ -1,0 +1,6 @@
+# Run the playground on Windows
+SET DEBUG=playground:* & npm start
+
+
+在 Windows，使用此命令:
+# SET DEBUG=playground:* & npm run devstart
