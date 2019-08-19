@@ -8,9 +8,17 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <h3>access_token</h3>
     <div id="access_token"></div>
+
+    <h3>id_token</h3>
     <div id="id_token"></div>
+
+    <h3>id_token_json</h3>
     <div id="id_token_json"></div>
+
+    <h3>state</h3>
+    <div id="state"></div>
 
 
     <script>
@@ -39,14 +47,21 @@
        var access_token = getUrlParameter("access_token");
        var id_token = getUrlParameter("id_token");
        var jwtdata = parseJwt(id_token); // jwtdata is an Object
- 
+
+       var state = getUrlParameter("state");
+       var state_dec = decodeURIComponent(state);
+
       //  console.log(access_token);
       //  console.log(id_token);
       //console.log(JSON.stringify(jwtdata));
+      //console.log(state_dec);
  
        document.querySelector("#access_token").innerHTML = access_token;
+
        document.querySelector("#id_token").innerHTML = id_token;
+
        document.querySelector("#id_token_json").innerHTML = JSON.stringify(jwtdata);
+       document.querySelector("#state").innerHTML = state_dec;
  
      </script>
 
