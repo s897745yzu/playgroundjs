@@ -23,16 +23,28 @@ rediredt to webfront:
 http://localhost:3000/GLOBAL/en/auth/twitch
 #access_token=
 &id_token=
-&locale=&state=
+&locale=
+&state=
 
 ---------------------------------------------------------------
 dropzone-dev
 
-redirect to http://localhost:3000/return/auth/twitch
 GET 
-https://id.twitch.tv/oauth2/authorize?client_id=l5ubhxte7n3nt9l00nk85ldlhuouav&redirect_uri=https://dz-dev.xyzcamp.com/api/third-party/twitch/redirect&response_type=code&scope=openid user:read:email&state={"locale":"/GLOBAL/en","redirect_uri":"http://localhost:3000/return/auth/twitch"}
+https://id.twitch.tv/oauth2/authorize?
+client_id=l5ubhxte7n3nt9l00nk85ldlhuouav
+&redirect_uri=https://dz-dev.xyzcamp.com/api/third-party/twitch/redirect
+&response_type=code
+&scope=openid user:read:email
+&state={  
+   "locale":"/GLOBAL/en",
+   "web_state":"pathname:/GLOBAL/en/coach/test001,search:?gameId=7,hash:",
+   "api_redirect_uri":"http://localhost:3000"
+}
 
-
-redirect to https://dz-dev.xyzcamp.com/GLOBAL/en/coach/test001?gameId=7
-https://id.twitch.tv/oauth2/authorize?client_id=l5ubhxte7n3nt9l00nk85ldlhuouav&redirect_uri=https://dz-dev.xyzcamp.com/api/third-party/twitch/redirect&response_type=code&scope=openid user:read:email&state={"locale":"/GLOBAL/en","redirect_uri":"https://dz-dev.xyzcamp.com/GLOBAL/en/coach/test001?gameId=7"}
+rediredt to webfront:
+http://localhost:3000/GLOBAL/en/auth/twitch
+#access_token=
+&id_token=
+&locale=
+&state=
 
