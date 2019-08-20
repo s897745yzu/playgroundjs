@@ -15,8 +15,15 @@ client_id=1ylg6axwjf36osm2q11nonpap4v6xt
 &scope=openid user:read:email
 &state={  
    "locale":"/GLOBAL/en",
-   "redirect_uri":"http://localhost:3000/return/auth/twitch"
+   "web_state":"pathname:/GLOBAL/en/coach/test001,search:?gameId=7,hash:",
+   "api_redirect_uri":"http://localhost:3000"
 }
+
+rediredt to webfront:
+http://localhost:3000/GLOBAL/en/auth/twitch
+#access_token=
+&id_token=
+&locale=&state=
 
 ---------------------------------------------------------------
 dropzone-dev
