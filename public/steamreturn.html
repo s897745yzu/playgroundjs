@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>try root</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <h3>openid.return_to</h3>
+    <div id="return_to"></div>
+    <h3>openid.identity</h3>
+    <div id="identity"></div>
+
+    <h3>steamID64</h3>
+    <div id="steamID64"></div>
+
+    <h3>steamID32</h3>
+    <div id="steamID32"></div>
+
+    <script src="https://cdn.bootcss.com/bignumber.js/9.0.0/bignumber.js"></script>
+    <script>
+      var query = window.location.search.substring(1);
+      console.log(query);
+ 
+
+      function getUrlParameter(name) {
+         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+         var results = regex.exec("?" + query);
+         return results === null
+           ? ""
+           : decodeURIComponent(results[1].replace(/\+/g, " "));
+       }
+       
+       var return_to = getUrlParameter("openid.return_to");
+       var identity = getUrlParameter("openid.identity");
+
+      //  console.log(return_to);
+ 
+       document.querySelector("#return_to").innerHTML = return_to;
+       document.querySelector("#identity").innerHTML = identity;
+
+       var parser = document.createElement('a');
+       parser.href = identity;
+
+       console.log(parser.pathname);   //    "/openid/id/76561198982099636"
+       var id64 = parser.pathname.split('/')[3];
+       document.querySelector("#steamID64").innerHTML = id64;
+
+       var id32 = BigNumber (id64).minus('76561197960265728');
+       document.querySelector("#steamID32").innerHTML = id32;
+
+     </script>
+
+  </body>
+</html>
