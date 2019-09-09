@@ -8,6 +8,7 @@
 // es6: module.exports & exports
 // global for node.js & window for browser
 
+//module.exports or exports 是Node.js專用的, 盡量不要用
 
 ((exports) => {
   const TestExprots = () => {
